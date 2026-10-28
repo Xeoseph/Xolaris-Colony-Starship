@@ -156,9 +156,28 @@ void SetupRedPlymouthPlayer()
 	Player[2].SetOre(6000);
 	// Note: AI population and food are locked; trying to change them does nothing.
 	
-	
-	
+	//Start Northern Base Placement:
+	TethysGame::CreateUnit(x, mapMHDGenerator, LOCATION(11 + 31, 16 - 1), 2, mapNone, 0);
+	TethysGame::CreateUnit(x, mapMHDGenerator, LOCATION(4 + 31, 16 - 1), 2, mapNone, 0);
+	TethysGame::CreateUnit(x, mapCommandCenter, LOCATION(28 + 31, 8 - 1), 2, mapNone, 0);
+	TethysGame::CreateUnit(x, mapAdvancedLab, LOCATION(43 + 31, 8 - 1), 2, mapNone, 0);
+	CreateTubeOrWallLine(31 + 31, 8 - 1, 41 + 31, 8 - 1, mapTube);
+	CreateTubeOrWallLine(28 + 31, 10 - 1, 28 + 31, 25 - 1, mapTube);
+	CreateTubeOrWallLine(25 + 31, 5 - 1, 31 + 31, 5 - 1, mapWall);
+	CreateTubeOrWallLine(25 + 31, 6 - 1, 25 + 31, 10 - 1, mapWall);
+	CreateTubeOrWallLine(31 + 31, 7 - 1, 31 + 31, 6 - 1, mapWall);
+	CreateTubeOrWallLine(31 + 31, 9 - 1, 31 + 31, 10 - 1, mapWall);
+	CreateTubeOrWallLine(26 + 31, 10 - 1, 27 + 31, 10 - 1, mapWall);
+	CreateTubeOrWallLine(29 + 31, 10 - 1, 30 + 31, 10 - 1, mapWall);
+	CreateTubeOrWallLine(40 + 31, 7 - 1, 40 + 31, 5 - 1, mapWall);
+	CreateTubeOrWallLine(41 + 31, 5 - 1, 46 + 31, 5 - 1, mapWall);
+	CreateTubeOrWallLine(46 + 31, 6 - 1, 46 + 31, 11 - 1, mapWall);
+	CreateTubeOrWallLine(45 + 31, 11 - 1, 40 + 31, 11 - 1, mapWall);
+	CreateTubeOrWallLine(40 + 31, 10 - 1, 40 + 31, 9 - 1, mapWall);
 
+	//End Northern Base Placement:
+	
+	//Start Southern Base Placement:
 	TethysGame::CreateBeacon(mapMiningBeacon, 25 + 31, 198 - 1, 1, 0, 2);
 	TethysGame::CreateBeacon(mapMiningBeacon, 15 + 31, 198 - 1, 0, 0, 2);
 	TethysGame::CreateBeacon(mapMiningBeacon, 35 + 31, 198 - 1, 0, 0, 2);
@@ -169,6 +188,11 @@ void SetupRedPlymouthPlayer()
 	TethysGame::CreateUnit(x, mapAgridome, LOCATION(44 + 31, 175 - 1), 2, mapNone, 0);
 	TethysGame::CreateUnit(x, mapNursery, LOCATION(48 + 31, 175 - 1), 2, mapNone, 0);
 	TethysGame::CreateUnit(x, mapUniversity, LOCATION(48 + 31, 182 - 1), 2, mapNone, 0);
+	TethysGame::CreateUnit(x, mapGuardPost, LOCATION(50 + 31, 168 - 1), 2, mapRPG, 0);
+	TethysGame::CreateUnit(x, mapGuardPost, LOCATION(79 + 31, 182 - 1), 2, mapRPG, 0);
+	TethysGame::CreateUnit(x, mapGuardPost, LOCATION(40 + 31, 200 - 1), 2, mapRPG, 0);
+	TethysGame::CreateUnit(x, mapGuardPost, LOCATION(28 + 31, 200 - 1), 2, mapRPG, 0);
+
 
 	// Place units for construction group
 	TethysGame::CreateUnit(x, mapStructureFactory, LOCATION(25 + 31, 182 - 1), 2, mapNone, 0);
@@ -205,7 +229,7 @@ void SetupRedPlymouthPlayer()
 	scriptGlobal.Reinforce.TakeUnit(x);
 	x.DoSetLights(1);
 	scriptGlobal.Reinforce.RecordVehReinforceGroup(scriptGlobal.CommonMining1, 1500);
-	//scriptGlobal.Reinforce.RecordVehReinforceGroup(scriptGlobal.CommonMining2, 1500);
+	scriptGlobal.Reinforce.RecordVehReinforceGroup(scriptGlobal.CommonMining2, 1500);
 	scriptGlobal.Reinforce.RecordVehReinforceGroup(scriptGlobal.Construction, 1000);
 
 	// Tube/wall placement
@@ -214,7 +238,7 @@ void SetupRedPlymouthPlayer()
 	CreateTubeOrWallLine(28 + 31, 182 - 1, 33 + 31, 182 - 1, mapTube);
 	CreateTubeOrWallLine(15 + 31, 184 - 1, 15 + 31, 190 - 1, mapTube);
 	CreateTubeOrWallLine(44 + 31, 180 - 1, 44 + 31, 177 - 1, mapTube);
-	//CreateTubeOrWallLine(36 + 31, 190 - 1, 36 + 31, 184 - 1, mapTube);  //To be built after game start
+	
 	
 	// Define AI rebuilding/expansion
 	scriptGlobal.Construction.RecordBuilding(LOCATION(15 + 31, 182 - 1), mapCommandCenter, mapNone);
@@ -225,6 +249,11 @@ void SetupRedPlymouthPlayer()
 	scriptGlobal.Construction.RecordBuilding(LOCATION(44 + 31, 182 - 1), mapAgridome, mapNone);
 	scriptGlobal.Construction.RecordBuilding(LOCATION(48 + 31, 182 - 1), mapUniversity, mapNone);
 	scriptGlobal.Construction.RecordBuilding(LOCATION(48 + 31, 175 - 1), mapNursery, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(50 + 31, 168 - 1), mapGuardPost, mapRPG);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(79 + 31, 182 - 1), mapGuardPost, mapRPG);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(40 + 31, 200 - 1), mapGuardPost, mapRPG);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(28 + 31, 200 - 1), mapGuardPost, mapRPG);
+
 	//AI Tubes Start
 	for (int y = 184; y <= 190; ++y)
 	{
@@ -255,12 +284,25 @@ void SetupRedPlymouthPlayer()
 	{
 		scriptGlobal.Construction.RecordTube(LOCATION(x + 31, 181 - 1));
 	}
+
+	for (int y = 185; y <= 190; ++y)
+	{
+		scriptGlobal.Construction.RecordTube(LOCATION(25 + 31, y - 1));
+	}
+
 	// AI Tubes Finish
-	//scriptGlobal.Construction.RecordBuilding(LOCATION(25 + 31, 192 - 1), mapRareOreSmelter, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(35 + 31, 192 - 1), mapCommonOreSmelter, mapNone);
+	scriptGlobal.Reinforce.RecordBuilding(LOCATION(15 + 31, 198 - 1), mapCommonOreMine, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(25 + 31, 192 - 1), mapRareOreSmelter, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(51 + 31, 182 - 1), mapResidence, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(51 + 31, 175 - 1), mapResidence, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(41 + 31, 175 - 1), mapMedicalCenter, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(5 + 31, 167 - 1), mapTokamak, mapNone);
+	scriptGlobal.Construction.RecordBuilding(LOCATION(5 + 31, 171 - 1), mapMHDGenerator, mapNone);
 	scriptGlobal.Construction.RecordBuilding(LOCATION(9 + 31, 171 - 1), mapMHDGenerator, mapNone);
 	//scriptGlobal.Construction.RecordBuilding(LOCATION(25 + 31, 168 - 1), mapSpaceport, mapNone);		// Buildings are built in the order they're defined and the AI will not skip a building it can't afford to build.  Ordering a Spaceport before the AI has any rare ore capacity to build it will cause the AI to lock up.
-	//scriptGlobal.Construction.RecordBuilding(LOCATION(35 + 31, 192 - 1), mapCommonOreSmelter, mapNone);
-	scriptGlobal.Reinforce.RecordBuilding(LOCATION(15 + 31, 198 - 1), mapCommonOreMine, mapNone);
+	//End Southern Base Placement
+	
 
 	// Here's an example of how you can get the AI to expand using triggers.  It will cause the AI to start building its second mining group after 13 marks.
 	scriptGlobal.AiExpansionTrigger = CreateTimeTrigger(1, 1, 1300, "PrepareSecondMiningGroup");
